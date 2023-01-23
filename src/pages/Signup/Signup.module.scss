@@ -1,0 +1,160 @@
+@import "../../public.scss";
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  direction: rtl;
+  grid-gap: 10vw;
+  padding: 0 10vw;
+  background-image: linear-gradient(90deg, #00000050 0%, #00000050 100%),
+    url("https://i.ibb.co/jRyc1by/Background-min.png");
+  background-size: 100% auto;
+  min-height: 100%;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border: solid 1px #c3d3f3;
+    direction: ltr;
+    background-color: #4144e261;
+    backdrop-filter: blur(4px);
+    font-family: Inter;
+    height: 500px;
+    gap: 15px;
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: solid 1px white;
+      width: 100%;
+
+      a {
+        text-decoration: none;
+        color: white;
+        text-align: center;
+      }
+
+      div {
+        text-align: center;
+        padding: 10px;
+        font-size: 20px;
+      }
+
+      div:nth-child(2) {
+        font-weight: bold;
+        border-bottom: solid 3px white;
+      }
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin: 10px 0;
+      font-size: 16px;
+      color: white;
+      font-weight: bold;
+      gap: 10px;
+
+      input {
+        background-color: transparent;
+        border: none;
+        border-bottom: solid 1px white;
+        font-weight: normal;
+        outline: none;
+        height: 40px;
+        color: white;
+        font-size: 16px;
+      }
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      background-color: #4143e2;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      padding: 15px;
+      outline: none;
+
+      &:hover {
+        background-color: #2d2fcb;
+        color: white;
+      }
+    }
+
+    input[type="submit"].loading {
+      background-color: #4144e2a8;
+      color: white;
+      cursor: not-allowed;
+    }
+
+    p {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      margin: 10px 0;
+      animation: append-animate 0.1s linear;
+
+      @keyframes append-animate {
+        from {
+          transform: scale(0);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+
+  div {
+    color: white;
+    direction: ltr;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    img {
+      filter: grayscale(100%) brightness(0) invert(1);
+      max-width: 150px;
+    }
+
+    div.socials {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      a {
+        background-color: white;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #4143e2;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    grid-template-columns: 1fr;
+    padding: 10% 10vw;
+  }
+}
+
+@media (max-aspect-ratio: 3/2) {
+  .main {
+    background-size: auto 100%;
+  }
+}
