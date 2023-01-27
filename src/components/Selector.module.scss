@@ -1,0 +1,64 @@
+@import "../public.scss";
+
+.container {
+  // border: solid 1px red;
+  display: flex;
+  width: 100%;
+
+  .input {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: solid 2px #4144e29d;
+    padding: 4px;
+    outline: none;
+    height: 35px;
+    margin: 5px 0;
+  }
+
+  .ulContainer {
+    position: absolute;
+    overflow-x: auto;
+    border: solid 1px $main-color;
+  }
+
+  .ul {
+    background-color: whitesmoke;
+    margin: 0;
+    padding: 0;
+    border: none;
+    list-style: none;
+    width: fit-content;
+    min-width: 100%;
+  }
+
+  .li {
+    font-size: 16px;
+    padding: 2px 4px 2px 4px;
+    white-space: nowrap;
+    color: $text-color;
+    height: 40px;
+  }
+
+  .li:nth-child(odd) {
+    background-color: white;
+  }
+
+  .li:nth-child(even) {
+    background-color: white;
+  }
+
+  .li.suggestion {
+    background-color: whitesmoke;
+    color: black;
+  }
+
+  .arrow {
+    color: white;
+    background-color: $main-color;
+    border: solid 1px $main-color;
+    width: 15px;
+    height: auto;
+    margin: 5px -2px;
+  }
+}
