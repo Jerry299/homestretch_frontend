@@ -13,3 +13,92 @@ body {
   color: white;
   height: 100%;
 }
+
+$main-color: #4144e2;
+$text-color: #353a42;
+
+.button {
+  background-color: $main-color;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  margin: 10px 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  &:hover {
+    background-color: #0105bb;
+  }
+}
+
+.button_alt {
+  background-color: transparent;
+  color: $main-color;
+  border: 1px solid $main-color;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  svg {
+    font-size: 20px;
+  }
+
+  &:hover {
+    background-color: #0105bb;
+    color: white;
+  }
+}
+
+button.saving {
+  background-color: #4144e2a8;
+  color: white;
+  cursor: not-allowed;
+
+  &:hover {
+    background-color: #4144e2a8;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  label {
+    color: black;
+    font-family: Inter;
+  }
+
+  input {
+    padding: 10px;
+    border: 2px solid #4144e29d;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: Inter;
+    margin: 5px 0;
+    color: $text-color;
+    outline: none;
+
+    &::placeholder {
+      color: #848484;
+    }
+    &:focus {
+      box-shadow: $main-color 0px 0px 5px;
+    }
+  }
+}
