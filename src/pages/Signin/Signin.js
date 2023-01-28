@@ -48,11 +48,10 @@ export default function Signin() {
         );
 
         const result = await response.json();
-        console.log(result);
         if (result.message === "Signed in successfully.") {
           const token = [...response.headers][0][1];
           localStorage.setItem("token", token);
-          window.location.href = "/";
+          window.location.href = "/profile";
         }
       } catch {
         setError("");
