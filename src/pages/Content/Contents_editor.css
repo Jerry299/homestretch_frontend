@@ -1,0 +1,4 @@
+.ck-content {
+  height: calc(100vh - 500px) ;
+  border: 1px solid silver !important;
+}

@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import ContentsList from "./pages/Content/ContentsList";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
 import Signin from "./pages/Signin/Signin";
@@ -38,7 +39,7 @@ function App() {
     } else {
       console.log("no token");
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="app">
@@ -47,6 +48,7 @@ function App() {
         <Route path="/sign_up" element={<Signup />} />
         <Route path="/sign_in" element={<Signin />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/contents/:content_type" element={<ContentsList />} />
       </Routes>
     </div>
   );
