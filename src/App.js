@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Content from "./pages/Content/Content";
+import ContentManagement from "./pages/Content/ContentManagement";
 import ContentsList from "./pages/Content/ContentsList";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
@@ -48,7 +50,12 @@ function App() {
         <Route path="/sign_up" element={<Signup />} />
         <Route path="/sign_in" element={<Signin />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/cms/:content_type" element={<ContentManagement />} />
         <Route path="/contents/:content_type" element={<ContentsList />} />
+        <Route
+          path="/contents/:content_type/:id/:title"
+          element={<Content />}
+        />
       </Routes>
     </div>
   );
