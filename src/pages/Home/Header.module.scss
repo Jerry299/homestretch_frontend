@@ -1,0 +1,42 @@
+.main {
+  background-image: linear-gradient(
+      90deg,
+      rgba(7, 26, 68, 0.45) 0%,
+      rgba(7, 26, 68, 0.45) 100%
+    ),
+    url("https://i.ibb.co/LPyXjW2/Education-center-image-min.jpg");
+  height: 55vw;
+  background-size: 100% auto;
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    height: 100%;
+
+    div:nth-child(1) {
+      position: absolute;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-right: 70vw solid transparent;
+      border-bottom: 10vw solid #fff;
+    }
+
+    div:nth-child(2) {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-left: 30vw solid transparent;
+      border-bottom: 10vw solid #fff;
+    }
+
+    div:nth-child(3) {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
