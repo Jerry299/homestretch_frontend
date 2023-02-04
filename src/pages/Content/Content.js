@@ -1,5 +1,7 @@
+import Footer from "../Home/Footer";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Menu from "../Home/Menu";
 import style from "./Content.module.scss";
 
 export default function Content() {
@@ -65,44 +67,48 @@ export default function Content() {
   };
 
   return (
-    <div className={style.main}>
-      <h1>{content.title}</h1>
-      {loading && <p>Loading...</p>}
-      {!loading &&
-        content.pages
-          .filter((page) => page.active)
-          .map((page, i) => (
-            <div key={page.id}>
-              <div className={style.header}>
-                <h2>{page.title}</h2>
-                <div className={style.navigate}>
-                  {page.index > 0 && (
-                    <button
-                      className={style.button_alt}
-                      onClick={(e) => handlePrevious(e, page.index)}
-                    >
-                      Previous
-                    </button>
-                  )}
-                  {page.index < content.pages.length - 1 && (
-                    <button
-                      className={style.button}
-                      onClick={(e) => handleNext(e, page.index)}
-                    >
-                      Next
-                    </button>
-                  )}
+    <>
+      <Menu alt="true" />
+      <div className={style.main}>
+        <h1>{content.title}</h1>
+        {loading && <p>Loading...</p>}
+        {!loading &&
+          content.pages
+            .filter((page) => page.active)
+            .map((page, i) => (
+              <div key={page.id}>
+                <div className={style.header}>
+                  <h2>{page.title}</h2>
+                  <div className={style.navigate}>
+                    {page.index > 0 && (
+                      <button
+                        className={style.button_alt}
+                        onClick={(e) => handlePrevious(e, page.index)}
+                      >
+                        Previous
+                      </button>
+                    )}
+                    {page.index < content.pages.length - 1 && (
+                      <button
+                        className={style.button}
+                        onClick={(e) => handleNext(e, page.index)}
+                      >
+                        Next
+                      </button>
+                    )}
+                  </div>
                 </div>
+                <div
+                  className={style.body}
+                  dangerouslySetInnerHTML={{
+                    __html: videoRenderedBody(page.body),
+                  }}
+                />
               </div>
-              <div
-                className={style.body}
-                dangerouslySetInnerHTML={{
-                  __html: videoRenderedBody(page.body),
-                }}
-              />
-            </div>
-          ))}
-    </div>
+            ))}
+      </div>
+      <Footer />
+    </>
   );
 }
 
