@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Header from "../Home/Header";
 import style from "./ContentsList.module.scss";
 import { Link } from "react-router-dom";
+import Footer from "../Home/Footer";
 
 export default function ContentsList() {
   const token = localStorage.getItem("token");
@@ -55,6 +56,7 @@ export default function ContentsList() {
           </Link>
         ))}
       </div>
+      <Footer />
     </div>
   );
 }
