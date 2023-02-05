@@ -123,4 +123,5 @@ const videoRenderedBody = (body) => {
     const iframeElement = `<iframe src="${oembedUrl}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
     return body.replace(oembedRegex, iframeElement);
   }
+  return body;
 };
