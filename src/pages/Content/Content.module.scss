@@ -60,6 +60,13 @@
       width: 100%;
       aspect-ratio: 16/9;
     }
+
+    figure {
+      margin: auto;
+      img {
+        width: 100%;
+      }
+    }
   }
 
   > div:nth-child(2) {
