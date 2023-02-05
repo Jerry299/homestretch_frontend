@@ -1,6 +1,6 @@
 import Footer from "../Home/Footer";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Menu from "../Home/Menu";
 import style from "./Content.module.scss";
 
@@ -66,17 +66,40 @@ export default function Content() {
     setContent(newContent);
   };
 
+  const scrollTo = (e, id) => {
+    e.preventDefault();
+    console.log(id);
+    const element = document.getElementById(id);
+    const offset = 30;
+    const bodyRect = document.body.getBoundingClientRect().top;
+    const elementRect = element.getBoundingClientRect().top;
+    const elementPosition = elementRect - bodyRect;
+    const offsetPosition = elementPosition - offset;
+    document.documentElement.scrollTop = offsetPosition;
+  };
+
+  const [marginTop, setMarginTop] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setMarginTop(window.scrollY > 150 ? window.scrollY - 100 : 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       <Menu alt="true" />
       <div className={style.main}>
-        <h1>{content.title}</h1>
         {loading && <p>Loading...</p>}
         {!loading &&
+          content_type == "education" &&
           content.pages
             .filter((page) => page.active)
             .map((page, i) => (
-              <div key={page.id}>
+              <div key={page.id} className={style.education}>
+                <h1>{content.title}</h1>
                 <div className={style.header}>
                   <h2>{page.title}</h2>
                   <div className={style.navigate}>
@@ -106,6 +129,37 @@ export default function Content() {
                 />
               </div>
             ))}
+        {!loading && content_type == "resource" && (
+          <div className={style.resource}>
+            <div>
+              <h3 style={{ marginTop }}>CONTENTS ON THIS PAGE</h3>
+              <ul>
+                {content.pages.map((page, i) => (
+                  <li key={page.id}>
+                    <Link
+                      onClick={(e) =>
+                        scrollTo(e, page.title.replace(/[^a-z0-9]/gi, "-"))
+                      }
+                    >
+                      {page.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h1>{content.title}</h1>
+              {content.pages.map((page, i) => (
+                <div key={page.id}>
+                  <h2 id={page.title.replace(/[^a-z0-9]/gi, "-")}>
+                    {page.title}
+                  </h2>
+                  <div dangerouslySetInnerHTML={{ __html: page.body }}></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
       <Footer />
     </>
