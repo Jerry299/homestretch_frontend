@@ -7,6 +7,7 @@ import {
   FaInstagram,
   FaLinkedinIn,
 } from "react-icons/fa";
+import host from "../../utils/host";
 
 export default function Signup() {
   const [email, setEmail] = useState("");
@@ -52,10 +53,7 @@ export default function Signup() {
           redirect: "follow",
         };
 
-        await fetch(
-          "https://homestretch-api.onrender.com/users",
-          requestOptions
-        )
+        await fetch(`${host}/users`, requestOptions)
           .then((response) => response.json())
           .then((result) => {
             if (result.message === "Signed up.") {

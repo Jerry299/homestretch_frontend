@@ -8,6 +8,7 @@ import ContentsList from "./pages/Content/ContentsList";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
 import Signin from "./pages/Signin/Signin";
+import Confirmation from "./pages/Signup/Confirmation";
 import Signup from "./pages/Signup/Signup";
 import { updateUser } from "./redux/reducers/user";
 
@@ -52,6 +53,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/cms/:content_type" element={<ContentManagement />} />
         <Route path="/contents/:content_type" element={<ContentsList />} />
+        <Route path="/confirm_account/:token" element={<Confirmation />} />
         <Route
           path="/contents/:content_type/:id/:title"
           element={<Content />}
