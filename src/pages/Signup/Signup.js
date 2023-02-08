@@ -57,7 +57,7 @@ export default function Signup() {
           .then((response) => response.json())
           .then((result) => {
             if (result.message === "Signed up.") {
-              window.location.href = "/profile";
+              window.location.href = "/confirm_your_account";
             }
           })
           .catch((error) => console.log("error", error));
