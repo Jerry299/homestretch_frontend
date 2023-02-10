@@ -12,11 +12,18 @@
   .logo {
     width: 150px;
     height: 30px;
-    filter: grayscale(1) brightness(0) invert(35%) sepia(16%) saturate(2569%)
-      hue-rotate(169deg) brightness(87%) contrast(96%);
     background-image: url("https://i.ibb.co/d0T7zsC/homestretch.png");
     background-size: cover;
     margin: auto;
+  }
+
+  .logo.alt {
+    filter: grayscale(1) brightness(0) invert(35%) sepia(16%) saturate(2569%)
+      hue-rotate(169deg) brightness(87%) contrast(96%);
+  }
+
+  .logo:not(.alt) {
+    filter: grayscale(100%) brightness(0) invert(1);
   }
 
   .links {

@@ -28,9 +28,18 @@ export default function ContentsList() {
     fetchContents();
   }, [content_type, token]);
 
+  const inlineStyle = {
+    backgroundImage: `linear-gradient(
+      90deg,
+      rgba(7, 26, 68, 0.45) 0%,
+      rgba(7, 26, 68, 0.45) 100%
+    ),
+    url("https://i.ibb.co/LPyXjW2/Education-center-image-min.jpg")`,
+  };
+
   return (
     <div className={style.main}>
-      <Header>
+      <Header inlineStyle={inlineStyle}>
         <h1 className={style.header_title}>HomeStretch Education Center</h1>
         <p className={style.header_paragraph}>
           The home buying process can be very stressful, but we are here to help
@@ -40,7 +49,8 @@ export default function ContentsList() {
       </Header>
       <h2>Recommended Contents</h2>
       <p>
-        Explore recommend homebuying educational content based on your profile.
+        Explore recommended homebuying educational content based on your
+        profile.
       </p>
       <div className={style.cards}>
         {contents.map((content) => (

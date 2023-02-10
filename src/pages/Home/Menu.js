@@ -14,7 +14,7 @@ export default function Menu(props) {
   const [rect, setRect] = useState({ x: 0, y: 0, width: 0, height: 0 });
   const [ulStyle, setUlStyle] = useState({
     top: rect.y + rect.height + window.scrollY,
-    left: rect.x - props.dir === "ltr" ? 0 : 15,
+    left: rect.x,
     maxHeight: props.maxHeight + "px",
   });
 
@@ -57,9 +57,12 @@ export default function Menu(props) {
 
   return (
     <nav className={style.main}>
-      <Link className={style.logo} to="/"></Link>
+      <Link
+        className={`${style.logo} ${props.alt ? style.alt : ""}`}
+        to="/"
+      ></Link>
       <p className={`${style.links} ${props.alt ? style.alt : ""}`}>
-        <Link to="/contents/education">Learning center</Link>
+        <Link to="/contents/education">Education center</Link>
         <Link
           to=""
           onClick={(e) => handleResourceMenuClick(e)}
