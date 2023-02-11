@@ -5,8 +5,8 @@ import Header from "./Header";
 import style from "./Home.module.scss";
 const inlineStyle = {
   backgroundImage: "url(https://i.ibb.co/YBg3Bmh/Home-page-1.png)",
-  backgroundColor: "#1d5b96",
-  backgroundSize: "60% auto",
+  backgroundColor: "#0C3C69",
+  backgroundSize: "50% auto",
   backgroundRepeat: "no-repeat",
   backgroundPosition: "bottom right",
 };
@@ -15,17 +15,17 @@ const features = [
   {
     icon: "https://i.ibb.co/6rGkwgr/Group.png",
     title: "Home Buying Education",
-    text: "Home Stretch provides first time home buyers with education contents to fill the knowledge gap on the home buying process.",
+    text: "Homestretch provides first time home buyers with education contents to fill the knowledge gap on the home buying process.",
   },
   {
     icon: "https://i.ibb.co/j3TX8Qf/Group-1.png",
     title: "Home Buying Resources",
-    text: "Home Stretch provides first time home buyers with education materials to fill the knowledge gap on the home buying process.",
+    text: "Homestretch provides first time home buyers with education materials to fill the knowledge gap on the home buying process.",
   },
   {
     icon: "https://i.ibb.co/ZM1BYBY/Group-2.png",
     title: "Virtual Events",
-    text: "Home Stretch provides first time home buyers with education materials to fill the knowledge gap on the home buying process.",
+    text: "Homestretch provides first time home buyers with education materials to fill the knowledge gap on the home buying process.",
   },
 ];
 
@@ -47,8 +47,6 @@ const defaultTestimonials = [
 export default function Home() {
   const [testimonial, setTestimonial] = useState(defaultTestimonials);
 
-  console.log(testimonial);
-
   const setShowingIndex = (index) => {
     const newTestimonial = testimonial.map((item, i) => {
       if (i === index) {
@@ -63,9 +61,7 @@ export default function Home() {
   return (
     <div className={style.main}>
       <Header inlineStyle={inlineStyle}>
-        <h1 className={style.header_title}>
-          Closing The Gap to Home Ownership
-        </h1>
+        <h1 className={style.header_title}>Closing The Gap to Homeownership</h1>
         <p className={style.header_paragraph}>
           Find that special home you won’t find anywhere else for you and your
           family
@@ -103,7 +99,7 @@ export default function Home() {
       </section>
       <section className={style.education}>
         <div>
-          <h2>Home Stretch Learning </h2>
+          <h2>Homestretch Learning </h2>
           <p>
             We are bridging the knowledge gap for new home buyers with our
             learning center. Home buyers Get access to a great deal of
@@ -122,7 +118,7 @@ export default function Home() {
       <section className={style.testimonial}>
         <div>
           <h2>What they’re saying</h2>
-          <p>See what Home Stretch users are saying</p>
+          <p>See what Homestretch users are saying</p>
         </div>
         {testimonial
           .filter((testimony) => testimony.showing)

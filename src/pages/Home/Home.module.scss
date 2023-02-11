@@ -27,7 +27,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     color: $main-color;
     gap: 30px;
-    padding: 30px 5%;
+    padding: 130px 5% 0 5%;
 
     h2 {
       grid-column: 1/4;
@@ -68,6 +68,7 @@
     background-color: $main-color;
     color: White;
     padding: 30px;
+    margin-top: 130px;
     background-image: url("https://i.ibb.co/Rytgsm0/Group-4.png");
 
     h2 {
@@ -82,7 +83,7 @@
   .content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-top: 50px;
+    margin-top: 150px;
     background-color: #f2f6ff;
 
     img {
@@ -114,7 +115,7 @@
   .education {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-top: 50px;
+    margin-top: 150px;
     background-color: #f2f6ff;
 
     img {
@@ -156,7 +157,7 @@
     }
   }
   .testimonial {
-    margin-top: 50px;
+    margin-top: 150px;
     h2 {
       color: $main-color;
       font-family: Inter;
@@ -165,7 +166,7 @@
       padding: 0 10%;
     }
 
-    > p {
+    p {
       color: $text-color;
       font-family: Inter;
       font-weight: normal;
