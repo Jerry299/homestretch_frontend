@@ -8,6 +8,7 @@ export default function ConfirmNeeded() {
         inbox. In case you did not receive the email, please check your spam
         folder.
       </h1>
+      <img src="https://i.ibb.co/d0T7zsC/homestretch.png" alt="logo" />
     </div>
   );
 }
