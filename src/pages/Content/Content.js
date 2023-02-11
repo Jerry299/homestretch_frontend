@@ -71,11 +71,35 @@ export default function Content() {
     document.documentElement.scrollTop = offsetPosition;
   };
 
-  const [marginTop, setMarginTop] = useState(0);
+  const [titlesStyle, setTitlesStyle] = useState({});
+  const [activeTitle, setActiveTitle] = useState(
+    content.pages ? content.pages[0].title : ""
+  );
 
   useEffect(() => {
     const handleScroll = () => {
-      setMarginTop(window.scrollY > 150 ? window.scrollY - 100 : 50);
+      let titles = Array.from(document.getElementsByClassName("title"));
+      setActiveTitle(
+        titles
+          .map((el) => {
+            return {
+              title: el,
+              top: el.getBoundingClientRect().top,
+            };
+          })
+          .filter((el) => el.top > 25)[0].title.innerHTML
+      );
+      setTitlesStyle(
+        window.scrollY > document.body.scrollHeight - 760
+          ? {
+              position: "fixed",
+              top: -(window.scrollY - document.body.scrollHeight + 750) + "px",
+              width: "250px",
+            }
+          : window.scrollY > 120
+          ? { position: "fixed", top: "10px", width: "250px" }
+          : {}
+      );
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -124,27 +148,37 @@ export default function Content() {
             ))}
         {!loading && content_type == "resource" && (
           <div className={style.resource}>
-            <div>
-              <h3 style={{ marginTop }}>CONTENTS ON THIS PAGE</h3>
-              <ul>
-                {content.pages.map((page, i) => (
-                  <li key={page.id}>
-                    <Link
-                      onClick={(e) =>
-                        scrollTo(e, page.title.replace(/[^a-z0-9]/gi, "-"))
-                      }
+            <div className={style.titlesContainer}>
+              <div className={style.titles} style={titlesStyle}>
+                <h3>CONTENTS ON THIS PAGE</h3>
+                <ul>
+                  {content.pages.map((page, i) => (
+                    <li
+                      key={page.id}
+                      className={`${
+                        activeTitle === page.title ? style.active : ""
+                      }`}
                     >
-                      {page.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+                      <Link
+                        onClick={(e) =>
+                          scrollTo(e, page.title.replace(/[^a-z0-9]/gi, "-"))
+                        }
+                      >
+                        {page.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
             <div>
               <h1>{content.title}</h1>
               {content.pages.map((page, i) => (
                 <div key={page.id}>
-                  <h2 id={page.title.replace(/[^a-z0-9]/gi, "-")}>
+                  <h2
+                    className="title"
+                    id={page.title.replace(/[^a-z0-9]/gi, "-")}
+                  >
                     {page.title}
                   </h2>
                   <div dangerouslySetInnerHTML={{ __html: page.body }}></div>
