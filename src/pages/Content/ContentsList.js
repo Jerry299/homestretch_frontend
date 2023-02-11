@@ -13,12 +13,7 @@ export default function ContentsList() {
 
   useEffect(() => {
     const fetchContents = async () => {
-      var myHeaders = new Headers();
-      myHeaders.append("Authorization", token);
-
-      fetch(`https://homestretch-api.onrender.com/contents/${content_type}`, {
-        headers: myHeaders,
-      })
+      fetch(`https://homestretch-api.onrender.com/contents/${content_type}`)
         .then((response) => response.json())
         .then((result) => {
           setContents(result);
@@ -55,11 +50,15 @@ export default function ContentsList() {
       <div className={style.cards}>
         {contents.map((content) => (
           <Link
-            to={`/contents/education/${content.id}/${content.title.replace(
-              /[^a-z0-9]/gi,
-              "-"
-            )}`}
-            className={style.card}
+            to={
+              token
+                ? `/contents/education/${content.id}/${content.title.replace(
+                    /[^a-z0-9]/gi,
+                    "-"
+                  )}`
+                : `/sign_in`
+            }
+            className={`${style.card} ${token && style.signed_in}`}
           >
             <img src={content.thumbnail} alt={content.title} />
             <h3>{content.title}</h3>
