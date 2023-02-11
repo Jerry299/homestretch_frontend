@@ -46,11 +46,14 @@ export default function Signin() {
         const response = await fetch(`${host}/users/sign_in`, requestOptions);
 
         const result = await response.json();
-        console.log(result);
         if (result.success === true) {
           const token = [...response.headers][0][1];
           localStorage.setItem("token", token);
-          window.location.href = "/profile";
+          if (result.data.first_update_date) {
+            window.location.href = "/";
+          } else {
+            window.location.href = "/profile";
+          }
         } else if (result.error === "Invalid Email or password.") {
           setError("");
           setTimeout(() => {
