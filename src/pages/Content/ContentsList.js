@@ -30,6 +30,9 @@ export default function ContentsList() {
       rgba(7, 26, 68, 0.45) 100%
     ),
     url("https://i.ibb.co/LPyXjW2/Education-center-image-min.jpg")`,
+    backgroundSize: "100% auto",
+    backgroundPosition: "0 -60px",
+    height: "45vw",
   };
 
   return (
