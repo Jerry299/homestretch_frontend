@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -31,16 +31,22 @@ const features = [
 
 const defaultTestimonials = [
   {
-    photo: "https://thispersondoesnotexist.com/image",
+    photo: "https://thispersondoesnotexist.com/image?v=1",
     name: "Elena Dave",
+    text: "HomeStretch is a very resourceful tool for first-time homebuyers. I was able learn about the homebuying process easily.",
+    showing: true,
+  },
+  {
+    photo: "https://thispersondoesnotexist.com/image?v=2",
+    name: "Jackson Alvarez",
     text: "HomeStretch is a very resourceful tool for first-time homebuyers. I was able learn about the homebuying process easily.",
     showing: false,
   },
   {
-    photo: "https://thispersondoesnotexist.com/image",
-    name: "Jackson Alvarez",
+    photo: "https://thispersondoesnotexist.com/image?v=3",
+    name: "Cengiz Hakan",
     text: "HomeStretch is a very resourceful tool for first-time homebuyers. I was able learn about the homebuying process easily.",
-    showing: true,
+    showing: false,
   },
 ];
 
@@ -48,15 +54,31 @@ export default function Home() {
   const [testimonial, setTestimonial] = useState(defaultTestimonials);
 
   const setShowingIndex = (index) => {
+    setTestimonial(testimonial.map((item) => ({ ...item, showing: false })));
     const newTestimonial = testimonial.map((item, i) => {
       if (i === index) {
-        return { ...item, showing: true };
+        return {
+          ...item,
+          showing: true,
+        };
       } else {
         return { ...item, showing: false };
       }
     });
     setTestimonial(newTestimonial);
   };
+
+  useEffect(() => {
+    let interval = setInterval(() => {
+      let showingIndex = testimonial.findIndex((item) => item.showing);
+      let nextIndex =
+        showingIndex + 1 === testimonial.length ? 0 : showingIndex + 1;
+      setShowingIndex(nextIndex);
+    }, 6000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [testimonial]);
 
   return (
     <div className={style.main}>
@@ -126,7 +148,11 @@ export default function Home() {
             <div key={testimony.name} className={style.testimony}>
               <img src={testimony.photo} alt={testimony.name} />
               <div>
-                <p>{testimony.text}</p>
+                <div>
+                  <p>“</p>
+                  <p>{testimony.text}</p>
+                  <p>„</p>
+                </div>
                 <h3>{testimony.name}</h3>
               </div>
             </div>
