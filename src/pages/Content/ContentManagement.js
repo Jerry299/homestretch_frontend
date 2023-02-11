@@ -68,10 +68,7 @@ export default function ContentManagement() {
         headers: myHeaders,
       })
         .then((response) => response.json())
-        .then((result) => {
-          console.log(result);
-          setContents(result);
-        })
+        .then((result) => setContents(result))
         .catch((error) => console.log("error", error));
     };
     fetchContents();
@@ -160,12 +157,8 @@ export default function ContentManagement() {
     fetch(`https://homestretch-api.onrender.com/contents/${id}`, {
       headers: myHeaders,
     })
-      .then((response) => {
-        console.log(response);
-        return response.json();
-      })
+      .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         setContent({
           id: result.content.id,
           title: result.content.title,
