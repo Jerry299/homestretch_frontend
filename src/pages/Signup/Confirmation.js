@@ -26,7 +26,7 @@ export default function Confirmation() {
   }, []);
 
   if (countDown === 1) {
-    window.location.href = "/";
+    window.location.href = "/sign_in";
   }
 
   return (

@@ -54,6 +54,7 @@
       transition: 0.3s;
       cursor: pointer;
       position: relative;
+      text-decoration: none;
 
       img {
         width: 100%;
@@ -71,6 +72,11 @@
 
       &:hover {
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    .card:not(.signed_in) {
+      &:hover {
         ::after {
           content: "Sign in to view";
           position: absolute;

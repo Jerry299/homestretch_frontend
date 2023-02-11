@@ -42,7 +42,10 @@ export default function Profile() {
     myHeaders.append("Authorization", token);
     myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({ ...tempUser, firs_update_date: new Date() });
+    var raw = JSON.stringify({
+      ...tempUser,
+      first_update_date: new Date().toISOString().split("T")[0],
+    });
 
     var requestOptions = {
       method: "POST",
@@ -416,7 +419,15 @@ export default function Profile() {
                       Next
                       <BiChevronRight />
                     </button>
-                    <button className={style.button_alt}>Continue later</button>
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.location.href = "/";
+                      }}
+                      className={style.button_alt}
+                    >
+                      Continue later
+                    </button>
                   </>
                 )}
                 {pageNumber === 3 && (
