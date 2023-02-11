@@ -106,10 +106,20 @@ export default function Menu(props) {
       )}
       {!token && (
         <div>
-          <Link to="/sign_in" className={`${style.button} ${style.btnSignIn}`}>
+          <Link
+            to="/sign_in"
+            className={`${style.button} ${style.btnSignIn} ${
+              props.alt ? style.alt : ""
+            }`}
+          >
             Log in
           </Link>
-          <Link to="/sign_up" className={`${style.button} ${style.btnSignUp}`}>
+          <Link
+            to="/sign_up"
+            className={`${style.button} ${style.btnSignUp} ${
+              props.alt ? style.alt : ""
+            }`}
+          >
             Sign up
           </Link>
         </div>
