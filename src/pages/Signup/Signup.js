@@ -56,8 +56,13 @@ export default function Signup() {
         await fetch(`${host}/users`, requestOptions)
           .then((response) => response.json())
           .then((result) => {
-            if (result.message === "Signed up.") {
+            if (result.success === true) {
               window.location.href = "/confirm_your_account";
+            } else if (result.error === "Email has already been taken") {
+              setError("");
+              setTimeout(() => {
+                setError("Email has already been taken");
+              }, 10);
             }
           })
           .catch((error) => console.log("error", error));
