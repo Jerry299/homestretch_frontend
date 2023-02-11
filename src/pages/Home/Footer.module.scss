@@ -1,0 +1,84 @@
+@import "../../public.scss";
+
+.main {
+  display: flex;
+  flex-direction: column;
+  font-family: Inter;
+  color: $main-color;
+  margin-top: 100px;
+
+  > div:nth-child(1) {
+    background-color: #f2f6ff;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    padding: 30px 10%;
+    gap: 20px;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .img {
+      width: 150px;
+      height: 30px;
+      filter: grayscale(1) brightness(0) invert(35%) sepia(16%) saturate(2569%)
+        hue-rotate(169deg) brightness(87%) contrast(96%);
+      background-image: url("https://i.ibb.co/d0T7zsC/homestretch.png");
+      background-size: cover;
+    }
+
+    p,
+    a {
+      color: $text-color;
+      text-decoration: none;
+      transition: 0.3s;
+
+      &:hover {
+        color: $main-color !important;
+      }
+    }
+
+    div.socials {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      a {
+        background-color: white;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $main-color;
+        font-size: 20px;
+      }
+    }
+
+    form {
+      background-color: white;
+      padding: 2px;
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+
+      input {
+        border: none;
+        outline: none;
+      }
+
+      button {
+        margin: 0;
+      }
+    }
+  }
+
+  > div:nth-child(2) {
+    height: 100px;
+    background-color: $main-color;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+  }
+}

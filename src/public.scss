@@ -9,13 +9,14 @@ body {
   padding: 0;
   font-family: inter;
   font-size: 16px;
-  background-color: #000000;
   color: white;
   height: 100%;
 }
 
-$main-color: #4144e2;
+$main-color: #1d5b96;
+$primary-color: #1d5b96;
 $text-color: #353a42;
+$bg-color: #c3d3f3;
 
 .button {
   background-color: $main-color;
@@ -32,6 +33,7 @@ $text-color: #353a42;
   justify-content: center;
   align-items: center;
   gap: 10px;
+  text-decoration: none;
 
   &:hover {
     background-color: #0105bb;
