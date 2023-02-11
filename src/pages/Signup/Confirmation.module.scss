@@ -2,6 +2,7 @@
 
 .main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: $bg-color;
@@ -9,6 +10,10 @@
   height: 100%;
   padding: 10%;
   box-sizing: border-box;
+
+  img {
+    margin-top: 50px;
+  }
 
   h1 {
     color: $text-color;
