@@ -18,12 +18,8 @@ export default function Content() {
       fetch(`https://homestretch-api.onrender.com/contents/${id}`, {
         headers: myHeaders,
       })
-        .then((response) => {
-          console.log(response);
-          return response.json();
-        })
+        .then((response) => response.json())
         .then((result) => {
-          console.log(result);
           setContent({
             id: result.content.id,
             title: result.content.title,
@@ -39,8 +35,6 @@ export default function Content() {
     };
     fetchContent();
   }, [id, token]);
-
-  console.log(content);
 
   const handleNext = (e, index) => {
     e.preventDefault();
@@ -68,7 +62,6 @@ export default function Content() {
 
   const scrollTo = (e, id) => {
     e.preventDefault();
-    console.log(id);
     const element = document.getElementById(id);
     const offset = 30;
     const bodyRect = document.body.getBoundingClientRect().top;
@@ -173,7 +166,6 @@ const videoRenderedBody = (body) => {
     const oembedUrl = oembedMatch[0]
       .match(/url="([^"]*)"/)[1]
       .replace("watch?v=", "embed/");
-    console.log(oembedUrl);
     const iframeElement = `<iframe src="${oembedUrl}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
     return body.replace(oembedRegex, iframeElement);
   }

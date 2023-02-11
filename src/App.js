@@ -40,8 +40,6 @@ function App() {
       };
 
       fetchUser();
-    } else {
-      console.log("no token");
     }
   }, [dispatch]);
 
