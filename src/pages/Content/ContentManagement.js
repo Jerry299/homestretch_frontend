@@ -64,7 +64,10 @@ export default function ContentManagement() {
       var myHeaders = new Headers();
       myHeaders.append("Authorization", token);
 
-      fetch(`https://homestretch-api.onrender.com/contents/${content_type}`, {
+      const url = ["resource", "education"].includes(content_type)
+        ? `https://homestretch-api.onrender.com/contents/${content_type}`
+        : `https://homestretch-api.onrender.com/contents/other/${content_type}`;
+      fetch(url, {
         headers: myHeaders,
       })
         .then((response) => response.json())

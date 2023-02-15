@@ -21,7 +21,7 @@
     padding: 1rem;
     border: solid 1px #c3d3f3;
     direction: ltr;
-    background-color: #4144e261;
+    background-color: #1d5b9661;
     backdrop-filter: blur(4px);
     font-family: Inter;
     height: 500px;
@@ -75,7 +75,7 @@
 
     input[type="submit"] {
       width: 100%;
-      background-color: #4143e2;
+      background-color: #1d5b96;
       border: none;
       border-radius: 5px;
       color: white;
@@ -87,13 +87,13 @@
       outline: none;
 
       &:hover {
-        background-color: #2d2fcb;
+        background-color: #144676;
         color: white;
       }
     }
 
     input[type="submit"].loading {
-      background-color: #4144e2a8;
+      background-color: #1d5b96a8;
       color: white;
       cursor: not-allowed;
     }
@@ -126,22 +126,6 @@
     img {
       filter: grayscale(100%) brightness(0) invert(1);
       max-width: 150px;
-    }
-
-    div.socials {
-      display: flex;
-      flex-direction: row;
-      gap: 10px;
-      a {
-        background-color: white;
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #4143e2;
-      }
     }
   }
 }

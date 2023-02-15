@@ -67,7 +67,7 @@
     cursor: pointer;
   }
 
-  ul {
+  > ul {
     position: absolute;
     background-color: white;
     margin: 0;
@@ -79,7 +79,7 @@
     padding: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
-    li {
+    > li {
       padding: 2px 4px 2px 4px;
       white-space: nowrap;
       color: $text-color;
@@ -93,6 +93,24 @@
       a {
         text-decoration: none;
         color: $text-color;
+      }
+
+      > ul {
+        padding: 5px 0;
+        > li {
+          list-style: none;
+          padding: 5px 0 5px 10px;
+          margin: 0;
+          font-size: 1.2vw;
+
+          a {
+            color: $main-color;
+          }
+
+          &:hover {
+            background-color: #f2f6ff;
+          }
+        }
       }
     }
   }

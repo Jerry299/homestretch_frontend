@@ -39,23 +39,6 @@
       }
     }
 
-    div.socials {
-      display: flex;
-      flex-direction: row;
-      gap: 10px;
-      a {
-        background-color: white;
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: $main-color;
-        font-size: 20px;
-      }
-    }
-
     form {
       background-color: white;
       padding: 2px;
