@@ -112,20 +112,6 @@ export default function Signin() {
           Sign up for a HomeStretch account to access all resources and
           educational content to help you navigate the home buying process.
         </p>
-        <div className={style.socials}>
-          <Link to="">
-            <FaFacebookF />
-          </Link>
-          <Link to="">
-            <FaTwitter />
-          </Link>
-          <Link to="">
-            <FaInstagram />
-          </Link>
-          <Link to="">
-            <FaLinkedinIn />
-          </Link>
-        </div>
       </div>
     </div>
   );
