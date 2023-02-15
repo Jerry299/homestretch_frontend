@@ -16,34 +16,19 @@ export default function Footer() {
             Lorem ipsum dolor sit amet consectetur. Aliquam sit blandit amet
             turpis auctor urna a venenatis turpis.
           </p>
-          <div className={style.socials}>
-            <Link to="">
-              <FaFacebookF />
-            </Link>
-            <Link to="">
-              <FaTwitter />
-            </Link>
-            <Link to="">
-              <FaInstagram />
-            </Link>
-            <Link to="">
-              <FaLinkedinIn />
-            </Link>
-          </div>
         </div>
         <div>
-          <h3>Quick Links</h3>
+          <h3>Company</h3>
           <Link to="/about">About us</Link>
           <Link to="/blog">Blog</Link>
-          <Link to="/careers">Careers</Link>
+          <Link to="/career">Careers</Link>
+          <Link to="/blog">Blog</Link>
           <Link to="/faq">FAQs</Link>
         </div>
         <div>
-          <h3>Quick Links</h3>
-          <Link to="/about">About us</Link>
-          <Link to="/blog">Blog</Link>
-          <Link to="/careers">Careers</Link>
-          <Link to="/faq">FAQs</Link>
+          <h3>Terms & Policies</h3>
+          <Link to="/terms-of-use">Terms of use</Link>
+          <Link to="/privacy-policy">Privacy policy</Link>
         </div>
         <div>
           <h3>Subscribe to our news letter</h3>
