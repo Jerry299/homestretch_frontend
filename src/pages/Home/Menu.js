@@ -16,7 +16,8 @@ export default function Menu(props) {
   const [rect, setRect] = useState({ x: 0, y: 0, width: 0, height: 0 });
   const [ulStyle, setUlStyle] = useState({
     top: rect.y + rect.height + window.scrollY,
-    left: rect.x,
+    right: window.innerWidth - rect.x - rect.width - 10,
+    left: "auto",
     maxHeight: props.maxHeight + "px",
   });
 
@@ -49,18 +50,20 @@ export default function Menu(props) {
       ...ulStyle,
       top: rect.y + rect.height + window.scrollY,
       left: rect.x,
+      right: "auto",
     });
     setShowResources(true);
   };
 
   const handleUserMenuClick = (e) => {
     e.preventDefault();
-    let rect = avatar.current.getBoundingClientRect();
+    let rect = e.target.getBoundingClientRect();
     setRect({ rect });
     setUlStyle({
       ...ulStyle,
       top: rect.y + rect.height + window.scrollY + 5,
-      left: rect.x,
+      right: window.innerWidth - rect.x - rect.width - 10,
+      left: "auto",
     });
     setShowUserMenu(true);
   };
@@ -70,6 +73,8 @@ export default function Menu(props) {
     localStorage.removeItem("token");
     window.location.reload();
   };
+
+  const userData = useSelector((state) => state.user);
 
   return (
     <nav className={style.main}>
@@ -87,9 +92,9 @@ export default function Menu(props) {
           Resources
           <BiChevronDown />
         </Link>
-        <Link to="/contents/education">Blog</Link>
-        <Link to="/contents/education">About</Link>
-        <Link to="/contents/education">Contact</Link>
+        <Link to="/blog">Blog</Link>
+        <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
       </p>
       {token && (
         <img
@@ -153,6 +158,42 @@ export default function Menu(props) {
               Sign Out
             </Link>
           </li>
+          {userData && userData.user.role === "admin" && (
+            <>
+              <li style={{ backgroundColor: "white" }}>
+                Content Management
+                <ul>
+                  <li>
+                    <Link to="/cms/education">Education</Link>
+                  </li>
+                  <li>
+                    <Link to="/cms/resource">Resources</Link>
+                  </li>
+                  <li>
+                    <Link to="/cms/about">About</Link>
+                  </li>
+                  <li>
+                    <Link to="/cms/contact">Contact</Link>
+                  </li>
+                  <li>
+                    <Link to="/cms/blog">Blog</Link>
+                  </li>
+                  <li>
+                    <Link to="/cms/ters-of-use">Terms of use</Link>
+                  </li>
+                  <li>
+                    <Link to="/cms/privacy-policy">Privacy policy</Link>
+                  </li>
+                  <li>
+                    <Link to="/cms/career">Careers</Link>
+                  </li>
+                  <li>
+                    <Link to="/cms/faq">FAQs</Link>
+                  </li>
+                </ul>
+              </li>
+            </>
+          )}
         </ul>
       )}
     </nav>
