@@ -117,7 +117,7 @@ export default function Signup() {
       </form>
       <div>
         <img src="https://i.ibb.co/d0T7zsC/homestretch.png" alt="logo" />
-        <h1>Welcome to Homestretch</h1>
+        <h1>Welcome to HomeStretch</h1>
         <p>
           Sign up for a HomeStretch account to access all resources and
           educational content to help you navigate the home buying process.
