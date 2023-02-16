@@ -59,6 +59,7 @@
 
     .body {
       padding: 20px 10%;
+      border: solid 1px $main-color;
       iframe {
         width: 100%;
         aspect-ratio: 16/9;
@@ -73,8 +74,8 @@
     }
 
     > div:nth-child(3) {
-      background-color: $bg-color;
-      min-height: calc(100vh - 20px);
+      background-color: #fafdff;
+      min-height: calc(100vh - 300px);
     }
   }
 
