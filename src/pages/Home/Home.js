@@ -24,8 +24,8 @@ const features = [
   },
   {
     icon: "https://i.ibb.co/ZM1BYBY/Group-2.png",
-    title: "Virtual Events",
-    text: "Homestretch provides first time home buyers with education materials to fill the knowledge gap on the home buying process.",
+    title: "Personalized Experience",
+    text: "HomeStretch provides personalized recommendations based on your profile.",
   },
 ];
 
@@ -121,7 +121,7 @@ export default function Home() {
       </section>
       <section className={style.education}>
         <div>
-          <h2>Homestretch Learning </h2>
+          <h2>HomeStretch Education</h2>
           <p>
             We are bridging the knowledge gap for new home buyers with our
             learning center. Home buyers Get access to a great deal of
