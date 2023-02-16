@@ -7,6 +7,7 @@ import {
   FaInstagram,
   FaLinkedinIn,
 } from "react-icons/fa";
+import host from "../../utils/host";
 
 export default function Signup() {
   const [email, setEmail] = useState("");
@@ -52,14 +53,16 @@ export default function Signup() {
           redirect: "follow",
         };
 
-        await fetch(
-          "https://homestretch-api.onrender.com/users",
-          requestOptions
-        )
+        await fetch(`${host}/users`, requestOptions)
           .then((response) => response.json())
           .then((result) => {
-            if (result.message === "Signed up.") {
-              window.location.href = "/profile";
+            if (result.success === true) {
+              window.location.href = "/confirm_your_account";
+            } else if (result.error === "Email has already been taken") {
+              setError("");
+              setTimeout(() => {
+                setError("Email has already been taken");
+              }, 10);
             }
           })
           .catch((error) => console.log("error", error));
@@ -114,25 +117,11 @@ export default function Signup() {
       </form>
       <div>
         <img src="https://i.ibb.co/d0T7zsC/homestretch.png" alt="logo" />
-        <h1>Welcome to Homestretch</h1>
+        <h1>Welcome to HomeStretch</h1>
         <p>
           Sign up for a HomeStretch account to access all resources and
           educational content to help you navigate the home buying process.
         </p>
-        <div className={style.socials}>
-          <Link to="">
-            <FaFacebookF />
-          </Link>
-          <Link to="">
-            <FaTwitter />
-          </Link>
-          <Link to="">
-            <FaInstagram />
-          </Link>
-          <Link to="">
-            <FaLinkedinIn />
-          </Link>
-        </div>
       </div>
     </div>
   );

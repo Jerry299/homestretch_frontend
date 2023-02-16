@@ -1,0 +1,17 @@
+.main {
+  height: 40vw;
+  background-size: 100% auto;
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    height: 100%;
+
+    div:nth-child(1) {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

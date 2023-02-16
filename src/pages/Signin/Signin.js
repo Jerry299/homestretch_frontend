@@ -7,6 +7,7 @@ import {
   FaInstagram,
   FaLinkedinIn,
 } from "react-icons/fa";
+import host from "../../utils/host";
 
 export default function Signin() {
   const [email, setEmail] = useState("");
@@ -42,16 +43,22 @@ export default function Signin() {
           redirect: "follow",
         };
 
-        const response = await fetch(
-          "https://homestretch-api.onrender.com/users/sign_in",
-          requestOptions
-        );
+        const response = await fetch(`${host}/users/sign_in`, requestOptions);
 
         const result = await response.json();
-        if (result.message === "Signed in successfully.") {
+        if (result.success === true) {
           const token = [...response.headers][0][1];
           localStorage.setItem("token", token);
-          window.location.href = "/profile";
+          if (result.data.first_update_date) {
+            window.location.href = "/";
+          } else {
+            window.location.href = "/profile";
+          }
+        } else if (result.error === "Invalid Email or password.") {
+          setError("");
+          setTimeout(() => {
+            setError("Invalid Email or password.");
+          }, 10);
         }
       } catch {
         setError("");
@@ -100,25 +107,11 @@ export default function Signin() {
       </form>
       <div>
         <img src="https://i.ibb.co/d0T7zsC/homestretch.png" alt="logo" />
-        <h1>Welcome to Homestretch</h1>
+        <h1>Welcome to HomeStretch</h1>
         <p>
           Sign up for a HomeStretch account to access all resources and
           educational content to help you navigate the home buying process.
         </p>
-        <div className={style.socials}>
-          <Link to="">
-            <FaFacebookF />
-          </Link>
-          <Link to="">
-            <FaTwitter />
-          </Link>
-          <Link to="">
-            <FaInstagram />
-          </Link>
-          <Link to="">
-            <FaLinkedinIn />
-          </Link>
-        </div>
       </div>
     </div>
   );
