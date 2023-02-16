@@ -141,7 +141,19 @@ export default function Content() {
                 <div
                   className={style.body}
                   dangerouslySetInnerHTML={{
-                    __html: videoRenderedBody(page.body),
+                    __html: videoRenderedBody(
+                      page.body +
+                        (page.index == content.pages.length - 1
+                          ? `<a href="/contents/education" class="${style.button}" 
+                              style="margin: 100px auto 0 auto; 
+                                     display: block;
+                                     width: 200px;
+                                     text-align: center;
+                              }">
+                                Back to learning center
+                             </a>`
+                          : "")
+                    ),
                   }}
                 />
               </div>
