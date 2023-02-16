@@ -13,7 +13,6 @@ export default function Home({ content_type }) {
       )
         .then((response) => response.json())
         .then((result) => {
-          console.log(result);
           setContent({
             body: result[0].pages[0].body,
           });
